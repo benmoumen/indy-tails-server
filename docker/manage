@@ -99,13 +99,13 @@ build)
   ;;
 start|up)
   exportEnvironment "$@"
-  ${dockerCompose} up -d ngrok-tails-server tails-server
+  ${dockerCompose} up -d tails-server
   logs
   echo "Run './manage logs' for logs" 
   ;;
 test)
   exportEnvironment "$@"
-  ${dockerCompose} up -d ngrok-tails-server tails-server
+  ${dockerCompose} up -d tails-server
   ${dockerCompose} run tester --genesis-url $GENESIS_URL --tails-server-url $TAILS_SERVER_URL
   # ${dockerCompose} down
   ;;
